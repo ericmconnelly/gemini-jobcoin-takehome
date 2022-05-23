@@ -95,6 +95,7 @@ export const TransactionGraph = ({ transactions, balance }) => {
   useEffect(() => {
     d3.selectAll("svg").remove();
     drawGraph(transactions);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [JSON.stringify(transactions)]);
 
   return <div id="graph" />;

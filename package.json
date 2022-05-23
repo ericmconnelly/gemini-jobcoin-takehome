@@ -13,7 +13,6 @@
     "@types/styled-components": "^5.1.25",
     "axios": "^0.27.2",
     "d3": "3.5.17",
-    "ky-universal": "^0.10.1",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "react-router-dom": "6",

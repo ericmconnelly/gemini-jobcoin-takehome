@@ -62,6 +62,7 @@ export const JobcoinMain = () => {
 
   useEffect(() => {
     handleFetchTransaction();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [addressId]);
 
   const handleDestAddrChange = (e: React.ChangeEvent<HTMLInputElement>) =>
