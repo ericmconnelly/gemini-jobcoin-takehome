@@ -43,7 +43,7 @@ export const SendJobcoin = ({
         </InputRow>
         {error ? (
           <InputRow>
-            <ErrorStyled>{error.data.error}</ErrorStyled>
+            <ErrorStyled>{error.data && error.data.error}</ErrorStyled>
           </InputRow>
         ) : null}
       </SendJobcoinBody>
