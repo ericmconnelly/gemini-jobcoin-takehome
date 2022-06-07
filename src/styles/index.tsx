@@ -40,6 +40,7 @@ export const SectionBody = styled.div`
 export const SendJobcoinStyled = styled.section`
   border: 1px solid black;
   width: 360px;
+  height: 420px;
 `;
 
 export const ErrorStyled = styled.div`
