@@ -4,7 +4,7 @@ import * as d3 from "d3";
 
 const drawGraph = (data) => {
   const margin = { top: 30, right: 20, bottom: 30, left: 50 },
-    width = 900 - margin.left - margin.right,
+    width = 1200 - margin.left - margin.right,
     height = 700 - margin.top - margin.bottom;
 
   const formatTime = d3.time.format("%e %B");

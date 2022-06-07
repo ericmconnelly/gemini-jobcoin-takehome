@@ -26,12 +26,17 @@ export const JobcoinMain = () => {
 
   const handleFetchTransaction = () => {
     fetchTransactions().then((newTransactions) => {
-      let currBalance = 0;
+      let currBalance = Number(newTransactions
+        .filter(
+          (tr: Transaction) =>
+            (!tr.fromAddress || tr.toAddress === addressId)
+        )[0].amount);
 
       const filteredTransactions = newTransactions
         .filter(
-          (tr: Transaction) =>
-            tr.fromAddress === addressId || tr.toAddress === addressId
+          (tr: Transaction) => tr.fromAddress && tr.toAddress && 
+            !(tr.fromAddress === addressId && tr.toAddress === addressId) &&
+            (tr.fromAddress === addressId || tr.toAddress === addressId)
         )
         .sort(
           (a: Transaction, b: Transaction) =>
@@ -74,9 +79,6 @@ export const JobcoinMain = () => {
     setDestAddress(e.target.value);
   const handleAmountToSendChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value.replace(/-(?=\d)/g,'');
-
-    console.log(value)
-    
     setAmountToSend(value);
   };
 
