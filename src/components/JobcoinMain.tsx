@@ -81,6 +81,7 @@ export const JobcoinMain = () => {
   };
 
   const handleSend = () => {
+    setError(null);
     const formData = new FormData();
     formData.append("toAddress", destAddress);
     formData.append("amount", amountToSend);
