@@ -7,8 +7,12 @@ export type Transaction = {
   balance: Number;
 };
 
+type ErrorField = {
+  amount: string[]
+}
+
 type DataError = {
-  error: string;
+  error: ErrorField;
 };
 
 type HeadersError = any;

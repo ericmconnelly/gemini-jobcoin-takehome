@@ -44,6 +44,7 @@ export const SendJobcoinStyled = styled.section`
 
 export const ErrorStyled = styled.div`
   color: red;
+  
 `;
 
 export const Label = styled.label`
@@ -59,7 +60,7 @@ export const SendJobcoinBody = styled.div`
   flex-direction: column;
   padding: 2rem;
   gap: 10%;
-  height: 200px;
+  height: 220px;
 `;
 
 export const Button = styled.button`

@@ -18,6 +18,12 @@ export const SendJobcoin = ({
   handleSend,
   error,
 }: SendJobcoinProps) => {
+  const handleOnKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.code === 'Minus') {
+        e.preventDefault();
+    }
+  };
+
   return (
     <SendJobcoinStyled>
       <SectionHeading>Send Jobcoin</SectionHeading>
@@ -35,7 +41,9 @@ export const SendJobcoin = ({
           <Input
             value={amountToSend}
             onChange={handleAmountToSendChange}
+            onKeyPress={handleOnKeyPress}
             type="number"
+            min="0"
           />
         </InputRow>
         <InputRow>
@@ -43,7 +51,7 @@ export const SendJobcoin = ({
         </InputRow>
         {error ? (
           <InputRow>
-            <ErrorStyled>{error.data && error.data.error}</ErrorStyled>
+            <ErrorStyled>{error.data && error.data.error && JSON.stringify(error.data.error)}</ErrorStyled>
           </InputRow>
         ) : null}
       </SendJobcoinBody>

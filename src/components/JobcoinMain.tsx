@@ -54,10 +54,15 @@ export const JobcoinMain = () => {
     });
   };
 
-  useEffect(() => {
+  const handleFetchBalance = () => {
     fetchBalance(addressId)
-      .then((json) => setBalance(json.balance))
-      .catch(setError);
+    .then((json) => setBalance(json.balance))
+    .catch(setError);
+  };
+
+  useEffect(() => {
+    handleFetchBalance();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [addressId]);
 
   useEffect(() => {
@@ -68,7 +73,11 @@ export const JobcoinMain = () => {
   const handleDestAddrChange = (e: React.ChangeEvent<HTMLInputElement>) =>
     setDestAddress(e.target.value);
   const handleAmountToSendChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setAmountToSend(e.target.value);
+    const value = e.target.value.replace(/-(?=\d)/g,'');
+
+    console.log(value)
+    
+    setAmountToSend(value);
   };
 
   const handleSend = () => {
@@ -84,6 +93,7 @@ export const JobcoinMain = () => {
       )
       .then(() => {
         handleFetchTransaction();
+        handleFetchBalance()
       })
       .catch((e) => {
         setError(e.response);
